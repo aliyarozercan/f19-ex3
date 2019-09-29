@@ -47,6 +47,8 @@ The python script to do this is included as `optimize_part1.py`, but you will ne
 
 In theory, you are optimizing a rapid event related design. Looking at the output, **what general type of design has the algorithm converged on?** In other words, does the general timing pattern remind you of something other than a rapid event related design?
 
+Stochastic design (?) 
+
 Spoiler: your design could be broadly characterized as having the features of something other than a rapid event-related design, although the design may have not converged to the ideal form of this other type of design. 
 
 
@@ -55,7 +57,14 @@ Spoiler: your design could be broadly characterized as having the features of so
 Speculate on why the optimal design you have obtained is in some respects uncharacteristic of a rapid event-related design. Specifically, consider
 
 1. What effect is the lack of counterbalancing having here? What would you predict if equal weight were given to detection efficiency and 3rd order counterbalancing?
+
+Counterbalancing is about how well we want to control the predictibility. The higher number would mean lesser predictibility of the stimuli sequence. 3 order counterbalancing means a higher unpredictibility compared to first order counterbalancing.
+
 2. What effect does the number of conditions have here? What would you predict if there were 6 conditions?
+
+We add the conditions to contrast the effects of two signals; in this way we can isolate the processes of interest. High condition number should make the interpretation harder. It may mean more than one base signal points and more than one top signal points. 
+
+Addendum: It takes waaay longer than having only two conditions.
 
 You will investigate these questions in the next sections, but please answer these questions before looking at your results from part 2 & 3.
 
@@ -73,10 +82,13 @@ Also change `exercise = 'part2'` on line 20 of the script. Save the python scrip
 
 Compared to the result of Part 1, does this design qualitatively seems to be more of a rapid event-related design?
 
+Yes! And it is more random.
+
 ## Question 2.2
 
 Are the differences between this design and Part 1 consistent with your earlier predictions?
 
+Yes. Especially the predictibility of the stimuli is considerably less compared to Part 1.
 
 
 # Part 3
@@ -90,6 +102,7 @@ Modify the design from Part 1 to
 Also change `exercise = 'part3'` on line 20 of the script. Save the python script as `optimize_part3.py` and the sbatch script as `sbatch_part3.sh`
 
 
+Note: I needed to some experiements with Part 3. It took more than I anticipated; so my files' are in the form of 'part3_5000_X.' 
  
 #Part 4
 
@@ -133,4 +146,8 @@ This is a very good thing statistically, but it may be undesirable psychological
 
 **Q: Does the structure of this design seem desirable from both a psychological expectation and neural adaptation perspective? If not, is there a parameter in the [src.neurodesign.experiment class documentation](https://neurodesign.readthedocs.io/en/latest/genalg.html#neurodesign-design-optimisation) that might be useful to change?**
 
+
+May be we can do: 'check_maxrep(maxrep)' to limit the amounts of repetition in a design.
+
+Note: I tried to run Part 4 with 5000 cycles for 30 hours, and it failed. So I created '400 cycle', '800 cycle', and '1200 cycle' tasks. It took 19h 16m to run the 400 cycle. I am not sure if this is a linear process, but it's been 24hs and 25 mins as I wrote these lines and '800' and '1200' are still running. 
 
